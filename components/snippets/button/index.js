@@ -1,5 +1,10 @@
+/** PropTypes library external*/
 import PropTypes from 'prop-types';
+
+/** cx library external */
 import cx from 'classnames';
+
+/** Link manage routes */
 import Link from 'next/link'
 
 
@@ -30,7 +35,7 @@ const Button = ({
         TRANSITION
     );
 
-    const defaultRel = (target === '_blank') ? 'noopener' : undefined;
+    const defaultRel = (target === "_blank") ? "noopener" : undefined;
 
     return link ? (
         <Link
@@ -50,6 +55,11 @@ const Button = ({
             onClick={callback && (() => callback())}
             className={classNames}
         >
+            {icon &&
+            <i>
+                {icon}
+            </i>
+            }
             <span>
                 {content}
             </span>
@@ -64,7 +74,7 @@ Button.propTypes = {
     /** Text to be displayed on the button. It's obligatory */
     content: PropTypes.string,
 
-    /** The background color on the button. It's obligatory */
+    /** The background color on the button.*/
     color: PropTypes.string,
 
     /** Action when executing button */
