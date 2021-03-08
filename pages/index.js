@@ -1,8 +1,14 @@
-import Head from 'next/head'
-
+import Button from "../components/snippets/button";
 
 export default function Home() {
-  return (
-      <div></div>
-  )
+
+    const clic = ()=>{
+        console.log('hi')
+    }
+
+    return (
+        <main>
+
+        </main>
+    )
 }
