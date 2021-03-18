@@ -1,4 +1,9 @@
+/** PropTypes library external*/
+import PropTypes from "prop-types";
+
+/** Icons declared in the "svgs" object */
 import svgs from "./icons";
+
 
 /**
  * @param {string} svg - Name of the icon declared in the "svgs" object
@@ -6,7 +11,12 @@ import svgs from "./icons";
  * @param {string} height - (Only use tailwinds classes)
  * @param {string} margin - (Only use tailwinds classes)
  */
-const Icon = ({ svg, title, height = 'h-5', margin='mr-2' }) => {
+const Icon = ({
+                  svg,
+                  title,
+                  height = 'h-5',
+                  margin = 'mr-2'
+              }) => {
 
     const svgRender = svgs[svg] || svgs.default;
 
@@ -25,4 +35,17 @@ const Icon = ({ svg, title, height = 'h-5', margin='mr-2' }) => {
 
     );
 };
+
+Icon.displayName = "Icon";
+
+Icon.propTypes = {
+    svg: PropTypes.string,
+
+    title: PropTypes.string,
+
+    height: PropTypes.string,
+
+    margin: PropTypes.string,
+};
+
 export default Icon;
