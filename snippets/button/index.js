@@ -1,32 +1,32 @@
 /** PropTypes library external*/
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /** cx library external */
-import cx from 'classnames';
+import cx from "classnames";
 
 /** Link manage routes */
-import Link from 'next/link'
+import Link from "next/link";
 
 
 const Button = ({
-                    content = "No content",
+                    content = "Button",
                     color = "primary",
                     callback = undefined,
                     link = undefined,
                     target = undefined,
                     isSubmit = false,
                     fullWidth = false,
-                    icon = undefined
+                    icon = undefined,
                 }) => {
 
-    const BUTTON_DEFAULT = `py-1.5 px-2.5 rounded-md shadow-sm font-medium focus:outline-none inline-flex items-center justify-center`;
-    const COLOR_BG = `bg-${color}-50`;
-    const COLOR_TXT = (color === "primary") ? "text-gray-800" : "text-white";
-    const WIDTH = (fullWidth) && "w-full";
-    const HOVER = `hover:bg-${color}-100 hover:shadow`;
+    const BUTTON_DEFAULT = `py-1.5 px-6 rounded-lg shadow-sm font-medium focus:outline-none inline-flex items-center justify-center`;
+    const COLOR_BG = `bg-${color}-600`;
+    const COLOR_TXT = color === "primary" ? "text-gray-800" : "text-white";
+    const WIDTH = fullWidth && "w-full";
+    const HOVER = `hover:bg-${color}-700 hover:shadow`;
     const TRANSITION = `transition duration-300 ease-in-out`;
 
-    const classNames = cx(
+    const classButton = cx(
         BUTTON_DEFAULT,
         COLOR_BG,
         COLOR_TXT,
@@ -35,17 +35,11 @@ const Button = ({
         TRANSITION
     );
 
-    const defaultRel = (target === "_blank") ? "noopener" : undefined;
+    const defaultRel = target === "_blank" ? "noopener" : undefined;
 
     return link ? (
-        <Link
-            href={link}
-        >
-            <a
-                target={target}
-                rel={defaultRel}
-                className={classNames}
-            >
+        <Link href={link}>
+            <a target={target} rel={defaultRel} className={classButton}>
                 {content}
             </a>
         </Link>
@@ -53,22 +47,15 @@ const Button = ({
         <button
             type={isSubmit ? "submit" : "button"}
             onClick={callback && (() => callback())}
-            className={classNames}
+            className={classButton}
         >
-            {icon &&
-            <i>
-                {icon}
-            </i>
-            }
-            <span>
-                {content}
-            </span>
+            {icon && icon}
+            <span>{content}</span>
         </button>
     );
-}
+};
 
-Button.displayName = 'Button';
-
+Button.displayName = "Button";
 
 Button.propTypes = {
     /** Text to be displayed on the button. It's obligatory */
@@ -89,16 +76,11 @@ Button.propTypes = {
     /** true for submit button */
     isSubmit: PropTypes.bool,
 
-    /** true for Outline style button */
-    outline: PropTypes.bool,
-
     /** true for full width button */
     fullWidth: PropTypes.bool,
 
     /** Icon (SVG) to be displayed on the left side */
-    icon: PropTypes.oneOfType([
-        PropTypes.element, PropTypes.func
-    ]),
-}
+    icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+};
 
 export default Button;
