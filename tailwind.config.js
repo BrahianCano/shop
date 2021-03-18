@@ -16,12 +16,12 @@ module.exports = {
             transparent: 'transparent',
             current: 'currentColor',
             primary: {
-                50: '#FFD369',
-                100: '#F8C753',
+                600: '#FFD369',
+                700: '#F8C753',
             },
             secondary: {
-                50: '#222831',
-                100: '#1B2027'
+                600: '#222831',
+                700: '#1B2027'
             },
             black: colors.black,
             white: colors.white,
