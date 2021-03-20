@@ -8,6 +8,16 @@ import cx from "classnames";
 import Link from "next/link";
 
 
+/**
+ * @param {string} content - Text to be displayed on the button
+ * @param {string} color - The background color on the button
+ * @param {function} callback - Action when executing button
+ * @param {string} link - Url Link target of the button
+ * @param {string} target - The target tag if a Link exists
+ * @param {boolean} isSubmit - True for submit type button
+ * @param {boolean} fullWidth - True for full Width button
+ * @param {JSX.Element} icon - Icon (SVG) to be displayed on the left side
+ */
 const Button = ({
                     content = "Button",
                     color = "primary",
@@ -32,7 +42,7 @@ const Button = ({
         COLOR_TXT,
         WIDTH,
         HOVER,
-        TRANSITION
+        TRANSITION,
     );
 
     const defaultRel = target === "_blank" ? "noopener" : undefined;
@@ -58,29 +68,21 @@ const Button = ({
 Button.displayName = "Button";
 
 Button.propTypes = {
-    /** Text to be displayed on the button. It's obligatory */
     content: PropTypes.string,
 
-    /** The background color on the button.*/
     color: PropTypes.string,
 
-    /** Action when executing button */
     callback: PropTypes.func,
 
-    /** url Link target of the button */
     link: PropTypes.string,
 
-    /** The target tag if a Link exists */
     target: PropTypes.string,
 
-    /** true for submit button */
     isSubmit: PropTypes.bool,
 
-    /** true for full width button */
     fullWidth: PropTypes.bool,
 
-    /** Icon (SVG) to be displayed on the left side */
-    icon: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+    icon: PropTypes.element,
 };
 
 export default Button;
